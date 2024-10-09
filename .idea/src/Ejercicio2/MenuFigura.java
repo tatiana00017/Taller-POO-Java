@@ -4,6 +4,7 @@ import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.IntStream;
 
 public class MenuFigura {
     Scanner sc = new Scanner(System.in);
@@ -31,16 +32,16 @@ public class MenuFigura {
                     optMenu = sc.nextInt();
                     if (optMenu == 1) {
                         System.out.println("Escriba el radio del circulo:");
-                        int radio = sc.nextInt();
+                        double radio = sc.nextInt();
                         crearCirculo(radio);
                         System.out.println( "exitooo");
                         break;
                     }
                     if (optMenu == 2) {
                         System.out.println("Escriba la base del rectangulo: ");
-                        int base = sc.nextInt();
+                        double base = sc.nextInt();
                         System.out.println("Escriba la base del rectangulo: ");
-                        int altura = sc.nextInt();
+                        double altura = sc.nextInt();
 
                         crearRectangulo(base,altura);
 
@@ -49,9 +50,9 @@ public class MenuFigura {
                     }
                     if (optMenu == 3) {
                         System.out.println("Escriba la base del Triangulo: ");
-                        int base = sc.nextInt();
+                        double base = sc.nextInt();
                         System.out.println("Escriba la base del Triangulo: ");
-                        int altura = sc.nextInt();
+                        double altura = sc.nextInt();
 
                         crearTriangulo(base,altura);
 
@@ -61,6 +62,14 @@ public class MenuFigura {
 
                     break;
                 case 2:
+                  if(!listaFiguras.isEmpty()){
+                      System.out.println("De la siguiente lista, elija la figura que quiere mover: ");
+                      IntStream.range(0, listaFiguras.size()).forEach(n -> System.out.println((n+1)+". " +lis));
+                  }
+
+
+
+
                     break;
                 case 3:
                     break;
@@ -79,20 +88,25 @@ public class MenuFigura {
     }
 
 
-    public void crearCirculo(int radio) {
+    public void crearCirculo(double radio) {
         Figura circulo;
         
         listaFiguras.add(circulo);
-        System.out.println("Este es tu dato " + radio);
+        System.out.println("Se ha credo un Circulo!");
     }
 
-    public void crearRectangulo(int base, int altura) {
+    public void crearRectangulo(double base, double altura) {
         Figura rectangulo;
+        listaFiguras.add(rectangulo);
+        System.out.println("Se ha credo un Rectangulo!");
     }
 
 
-    public void crearTriangulo(int base, int altura) {
+    public void crearTriangulo(double base, double altura) {
         Figura triangulo;
+        listaFiguras.add(triangulo);
+
+        System.out.println("Se ha credo un Triangulo!");
     }
 
 
