@@ -8,6 +8,7 @@ import java.util.stream.IntStream;
 
 public class MenuFigura {
     Scanner sc = new Scanner(System.in);
+    Scanner scTring = new Scanner(System.in);
     List<Figura> listaFiguras = new ArrayList<>();
     int optMenu;
     boolean sistemaActivado = true;
@@ -31,32 +32,37 @@ public class MenuFigura {
                     System.out.println("\t\t3. Triangulo.");
                     optMenu = sc.nextInt();
                     if (optMenu == 1) {
+                        System.out.println("Escriba el color del circulo:");
+                        String color  = scTring.nextLine();
                         System.out.println("Escriba el radio del circulo:");
                         double radio = sc.nextInt();
-                        crearCirculo(radio);
-                        System.out.println( "exitooo");
+                        Figura circulo = new Circulo(color, 1.0, 8.0, radio);
+                        boolean add = listaFiguras.add(circulo);
+                        System.out.println( "Se ha creado el circulo!");
                         break;
                     }
                     if (optMenu == 2) {
-                        System.out.println("Escriba la base del rectangulo: ");
-                        double base = sc.nextInt();
-                        System.out.println("Escriba la base del rectangulo: ");
-                        double altura = sc.nextInt();
-
-                        crearRectangulo(base,altura);
-
-                        System.out.println( "exitooo");
+                        System.out.println("Escriba el color del Rectangulo:");
+                        String color  = scTring.nextLine();
+                        System.out.println("Escriba la base del Rectangulo:");
+                        double b = sc.nextDouble();
+                        System.out.println("Escriba la altura del Rectangulo:");
+                        double a = sc.nextDouble();
+                        Figura rec = new Rectangulo(color, 1.0, 8.0, b, a);
+                        boolean add = listaFiguras.add(rec);
+                        System.out.println( "Se ha creado el Rectangulo!");
                         break;
                     }
                     if (optMenu == 3) {
-                        System.out.println("Escriba la base del Triangulo: ");
-                        double base = sc.nextInt();
-                        System.out.println("Escriba la base del Triangulo: ");
-                        double altura = sc.nextInt();
-
-                        crearTriangulo(base,altura);
-
-                        System.out.println( "exitooo");
+                        System.out.println("Escriba el color del Triangulo:");
+                        String color  = scTring.nextLine();
+                        System.out.println("Escriba la base del Triangulo:");
+                        double b = sc.nextDouble();
+                        System.out.println("Escriba la altura del Triangulo:");
+                        double a = sc.nextDouble();
+                        Figura tria = new Triangulo(color, 1.0, 8.0, b, a);
+                        boolean add = listaFiguras.add(tria);
+                        System.out.println( "Se ha creado el Triangulo!");
                         break;
                     }
 
@@ -64,10 +70,16 @@ public class MenuFigura {
                 case 2:
                   if(!listaFiguras.isEmpty()){
                       System.out.println("De la siguiente lista, elija la figura que quiere mover: ");
-                      IntStream.range(0, listaFiguras.size()).forEach(n -> System.out.println((n+1)+". " +lis));
+                      for (int i = 0; i < listaFiguras.size(); i++){
+                          System.out.println((1+i) +" "+ listaFiguras.get(i) );
+                      }
+                      System.out.println("Opcion: ");
+                      int cl = sc.nextInt();
+                      Figura fig = listaFiguras.get(cl-1);
+                      System.out.println("La posicion x hacia donde mover: ");
+                      double p = sc.nextDouble();
+                      fig
                   }
-
-
 
 
                     break;
@@ -88,26 +100,11 @@ public class MenuFigura {
     }
 
 
-    public void crearCirculo(double radio) {
-        Figura circulo;
-        
-        listaFiguras.add(circulo);
-        System.out.println("Se ha credo un Circulo!");
-    }
-
-    public void crearRectangulo(double base, double altura) {
-        Figura rectangulo;
-        listaFiguras.add(rectangulo);
-        System.out.println("Se ha credo un Rectangulo!");
-    }
 
 
-    public void crearTriangulo(double base, double altura) {
-        Figura triangulo;
-        listaFiguras.add(triangulo);
 
-        System.out.println("Se ha credo un Triangulo!");
-    }
+
+
 
 
 }

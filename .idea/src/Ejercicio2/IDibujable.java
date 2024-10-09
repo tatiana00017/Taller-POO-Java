@@ -1,6 +1,6 @@
 package Ejercicio2;
 
-public interface IDibujable {
+ interface IDibujable extends IMovible{
     void dibujar();
     void rotar();
 }

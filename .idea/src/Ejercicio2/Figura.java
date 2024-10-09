@@ -1,10 +1,10 @@
 package Ejercicio2;
 
 public abstract class Figura {
-    String color;
-    Double posicionX, posicionY;
-    abstract void calcularArea();
-    abstract void calcularPerimetr();
+    public String color;
+   public  double posicionX, posicionY;
+    abstract double calcularArea();
+    abstract double calcularPerimetro();
 
     public Figura() {
     }
