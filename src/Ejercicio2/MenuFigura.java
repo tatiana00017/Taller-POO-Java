@@ -78,7 +78,7 @@ public class MenuFigura {
                       Figura fig = listaFiguras.get(cl-1);
                       System.out.println("La posicion x hacia donde mover: ");
                       double p = sc.nextDouble();
-                      fig
+
                   }
 
 
